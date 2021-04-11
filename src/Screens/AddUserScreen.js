@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, TextInput, ScrollView, ActivityIndicator, View, SafeAreaView } from 'react-native';
+import { Button, StyleSheet, TextInput, ScrollView, ActivityIndicator, View, TouchableOpacity, Text } from 'react-native';
 import Header from '../Components/Header';
 import firebase from '../firebase/firebase';
 
@@ -60,7 +60,7 @@ class AddUserScreen extends Component {
     }
     return (
       <View style={{flex:1}}>
-      <Header/>
+      <Header title={"Add User"} />
       <ScrollView style={styles.container}>
         <View style={styles.inputGroup}>
           <TextInput
@@ -85,13 +85,16 @@ class AddUserScreen extends Component {
               onChangeText={(val) => this.inputValueUpdate(val, 'mobile')}
           />
         </View>
+
+        <TouchableOpacity
+        onPress={()=> this.storeUser()}
+        >
         <View style={styles.button}>
-          <Button
-            title='Add User'
-            onPress={() => this.storeUser()} 
-            color="#19AC52"
-          />
+        <Text style={styles.buttonText}>Add User</Text>
         </View>
+
+        </TouchableOpacity>
+        
       </ScrollView>
       </View>
     );
@@ -120,6 +123,18 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  button:{
+    alignItems:'center',
+    backgroundColor:'#43a',
+    width:'50%',
+    alignSelf:'center',
+    padding:12,
+    borderRadius:100,
+    marginTop:24
+  },
+  buttonText:{
+    color:'#fff'
   }
 })
 

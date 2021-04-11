@@ -98,7 +98,7 @@ class UserDetailScreen extends Component {
     }
     return (
       <View style={{flex:1}}>
-      <Header/>
+      <Header title={"User Detail"} />
       <ScrollView style={styles.container}>
         <View style={styles.inputGroup}>
           <TextInput

@@ -53,7 +53,7 @@ class UserScreen extends Component {
     }    
     return (
       <View style={{flex:1}}>
-      <Header/>
+      <Header title={"List of user"} />
       <ScrollView style={styles.container}>
           {
             this.state.userArr.map((item, i) => {

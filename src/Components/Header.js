@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text,SafeAreaView } from 'react-native';
+import { View, Text,SafeAreaView, StyleSheet } from 'react-native';
 
 
 
@@ -10,11 +10,24 @@ class Header extends Component {
     }
     render() {
         return (
-            <SafeAreaView style={{backgroundColor:'#565',flexDirection:'row', padding:12,  justifyContent:'center'}}>
-            <Text>Heder</Text>
+            <SafeAreaView style={styles.parentView}>
+            <Text style={styles.text}>{this.props.title}</Text>
             </SafeAreaView>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    text:{
+        color:'#fff',
+        fontSize:16,
+        marginBottom:12
+    },
+    parentView:{
+        backgroundColor:'#565',
+        flexDirection:'row', 
+        padding:12,  
+        justifyContent:'center'}
+})
 
 export default Header;
